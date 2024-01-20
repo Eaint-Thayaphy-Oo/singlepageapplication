@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Container } from "./styles/Shares";
+import { ThemeProvider } from "styled-components";
+import { GlobalCSS } from "./styles/GlobalCSS";
+import Home from "./components/Home";
+
+const theme = {
+  colors: {
+    primary: "aliceblue",
+  },
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <GlobalCSS />
+      <Container>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />}></Route>
+            <Route></Route>
+          </Routes>
+        </Router>
+      </Container>
+    </ThemeProvider>
   );
 }
 
