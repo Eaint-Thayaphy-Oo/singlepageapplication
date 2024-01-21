@@ -4,6 +4,9 @@ import { Container } from "./styles/Shares";
 import { ThemeProvider } from "styled-components";
 import { GlobalCSS } from "./styles/GlobalCSS";
 import Home from "./components/Home";
+import Login from "./components/Login";
+import LoginContextProvider from "./store/LoginContextApi";
+import RouteGuard from "./helpers/RouteGuard";
 
 const theme = {
   colors: {
@@ -16,12 +19,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalCSS />
       <Container>
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route></Route>
-          </Routes>
-        </Router>
+        <LoginContextProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<Login />}></Route>
+              <Route path="/home" element={<RouteGuard><Home /></RouteGuard>}></Route>
+            </Routes>
+          </Router>
+        </LoginContextProvider>
       </Container>
     </ThemeProvider>
   );

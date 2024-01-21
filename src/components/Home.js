@@ -4,6 +4,7 @@ import styled from "styled-components";
 import flutterImage from "../images/flutter-3.png";
 import javaImage from "../images/Java-Logo.png";
 import nodeImage from "../images/node-js.png";
+import { Button } from "../styles/Shares";
 
 const FlexDiv = styled.div`
   background-color: ${(props) => props.theme.colors.primary};
@@ -19,19 +20,6 @@ const Flex = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-`;
-
-const Button = styled.button`
-  background-color: hotpink;
-  border: none;
-  padding: 10px 20px;
-  color: #fff;
-  border-radius: 3px;
-  margin-top: 20px;
-
-  &:hover {
-    background-color: indigo;
-  }
 `;
 
 export default function Home() {
